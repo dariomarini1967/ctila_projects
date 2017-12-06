@@ -1,6 +1,9 @@
 
-public class Test {
+public class GestioneTombola {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
