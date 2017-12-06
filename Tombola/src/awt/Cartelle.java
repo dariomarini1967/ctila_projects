@@ -79,7 +79,7 @@ public class Cartelle
 		int riga;
 		int colonna;
 		int contCinquina = 0;
-		int contAmbo = 0;
+		//int contAmbo = 0;
 		int contTerno = 0;
 		int contElementi;
 		int ultimaEstrazione;
