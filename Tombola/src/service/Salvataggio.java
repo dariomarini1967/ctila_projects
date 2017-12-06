@@ -18,7 +18,7 @@ public class Salvataggio {
 			}
 			dos.close();
 		} catch (IOException e) {
-			;
+			e.printStackTrace();
 		}
 
 	}

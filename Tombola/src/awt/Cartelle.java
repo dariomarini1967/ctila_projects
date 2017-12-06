@@ -23,6 +23,7 @@ public class Cartelle
 	List listaUltimeVincite;
 	Checkbox deveAggiornare;
 	PannelloControlloCartelle pannelloControlloCartelle;
+	boolean nonSalvareFile=false;
 
 	public Cartelle() {
 		int contFile;
@@ -120,7 +121,8 @@ public class Cartelle
 		}
 		posizioneEstrazione[numeroDaAnnullare] = 0;
 		setQuantiEstratti(getQuantiEstratti() - 1);
-		new Salvataggio(posizioneEstrazione);
+		if(!nonSalvareFile)
+			new Salvataggio(posizioneEstrazione);
 	}
 
 	public void estrazioneEffettuata(int numeroEstratto) {
@@ -140,7 +142,8 @@ public class Cartelle
 				}
 			} while (++i < indiceArray);
 		}
-		new Salvataggio(posizioneEstrazione);
+		if(!nonSalvareFile)
+			new Salvataggio(posizioneEstrazione);
 	}
 
 	public int getQuantiEstratti() {
@@ -149,6 +152,14 @@ public class Cartelle
 
 	public void setQuantiEstratti(int quantiEstratti) {
 		this.quantiEstratti = quantiEstratti;
+	}
+
+	public synchronized boolean isNonSalvareFile() {
+		return nonSalvareFile;
+	}
+
+	public synchronized void setNonSalvareFile(boolean nonSalvareFile) {
+		this.nonSalvareFile = nonSalvareFile;
 	}
 
 }

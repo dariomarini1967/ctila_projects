@@ -1,4 +1,4 @@
-import service.Caricamento;
+import service.CaricamentoIniziale;
 import window.TabelloneControllo;
 import window.TabellonePubblico;
 import awt.Cartelle;
@@ -16,7 +16,7 @@ class GestioneEstrazioni {
 		tabellone.setVisible(true);
 		tabellonePubblico.setVisible(true);
 		finestraControllo.setVisible(true);
-		new Caricamento(tabellone, cartelle);
+		new CaricamentoIniziale(tabellone, cartelle);
 	}
 }
 

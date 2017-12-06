@@ -9,8 +9,8 @@ import window.TabelloneControllo;
 import awt.Cartelle;
 import awt.NumeriEstratti;
 
-public class Caricamento {
-	public Caricamento(TabelloneControllo tabellone, Cartelle cartelle) {
+public class CaricamentoIniziale {
+	public CaricamentoIniziale(TabelloneControllo tabellone, Cartelle cartelle) {
 		int[] arrayOrdinamento;
 		int[] arrayLetto;
 		int i;
@@ -29,15 +29,17 @@ public class Caricamento {
 					max = arrayLetto[a];
 				// System.out.println(arrayLetto[a]);
 			}
-			cartelle.setQuantiEstratti(max);
+			
+			//cartelle.setQuantiEstratti(max);
 			// dis.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("NO FILE");
+			System.out.println(NumeriEstratti.file+" non trovato; carico tabellone vuoto");
 			return;
 		} catch (IOException e) {
-			System.out.println("IO ERROR");
-			return;
+			e.printStackTrace();
+			System.exit(1);
 		}
+		cartelle.setNonSalvareFile(true);
 		arrayOrdinamento = new int[91];
 		for (i = 1; i <= 90; i++) {
 			if (arrayLetto[i] > 0)
@@ -47,6 +49,7 @@ public class Caricamento {
 			if (arrayOrdinamento[i] > 0)
 				tabellone.casella[arrayOrdinamento[i] - 1].estratto();
 		}
+	cartelle.setNonSalvareFile(false);
 
 	}
 
